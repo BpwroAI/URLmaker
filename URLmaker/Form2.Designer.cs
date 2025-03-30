@@ -34,10 +34,12 @@
             label2 = new Label();
             label3 = new Label();
             textBox3 = new TextBox();
-            label4 = new Label();
             groupBox1 = new GroupBox();
+            textPreBox = new TextBox();
             button1 = new Button();
             button2 = new Button();
+            textBox4 = new TextBox();
+            label5 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,7 +61,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(74, 29);
             textBox1.TabIndex = 1;
-            textBox1.Text = "99";
+            textBox1.Text = "2";
             textBox1.TextAlign = HorizontalAlignment.Right;
             // 
             // textBox2
@@ -86,7 +88,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Yu Gothic UI", 12F);
-            label3.Location = new Point(205, 162);
+            label3.Location = new Point(205, 158);
             label3.Name = "label3";
             label3.Size = new Size(217, 21);
             label3.TabIndex = 4;
@@ -96,36 +98,38 @@
             // textBox3
             // 
             textBox3.Font = new Font("Yu Gothic UI", 12F);
-            textBox3.Location = new Point(428, 159);
+            textBox3.Location = new Point(428, 155);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(280, 29);
             textBox3.TabIndex = 5;
             textBox3.Text = "https://";
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Yu Gothic UI", 10F);
-            label4.Location = new Point(6, 19);
-            label4.Name = "label4";
-            label4.Size = new Size(266, 19);
-            label4.TabIndex = 6;
-            label4.Text = "Previewを押すと生成サンプルが表示されます。";
-            // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(label4);
-            groupBox1.Location = new Point(12, 272);
+            groupBox1.Controls.Add(textPreBox);
+            groupBox1.Location = new Point(12, 329);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(696, 166);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
-            groupBox1.Text = "URLサンプル";
+            groupBox1.Text = "URLサンプル (30件まで)";
+            // 
+            // textPreBox
+            // 
+            textPreBox.Font = new Font("Yu Gothic UI", 10F);
+            textPreBox.Location = new Point(6, 22);
+            textPreBox.Multiline = true;
+            textPreBox.Name = "textPreBox";
+            textPreBox.ScrollBars = ScrollBars.Vertical;
+            textPreBox.Size = new Size(684, 138);
+            textPreBox.TabIndex = 12;
+            textPreBox.Text = "Previewを押すと生成サンプルが表示されます。";
+            textPreBox.WordWrap = false;
             // 
             // button1
             // 
             button1.Font = new Font("Yu Gothic UI", 12F);
-            button1.Location = new Point(575, 221);
+            button1.Location = new Point(575, 278);
             button1.Name = "button1";
             button1.Size = new Size(133, 45);
             button1.TabIndex = 8;
@@ -136,7 +140,7 @@
             // button2
             // 
             button2.Font = new Font("Yu Gothic UI", 12F);
-            button2.Location = new Point(12, 234);
+            button2.Location = new Point(12, 291);
             button2.Name = "button2";
             button2.Size = new Size(133, 32);
             button2.TabIndex = 9;
@@ -144,11 +148,32 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // textBox4
+            // 
+            textBox4.Font = new Font("Yu Gothic UI", 12F);
+            textBox4.Location = new Point(428, 215);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(280, 29);
+            textBox4.TabIndex = 11;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Yu Gothic UI", 12F);
+            label5.Location = new Point(205, 218);
+            label5.Name = "label5";
+            label5.Size = new Size(217, 21);
+            label5.TabIndex = 10;
+            label5.Text = "URLの末尾に付与する文字列：";
+            label5.TextAlign = ContentAlignment.TopRight;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(729, 450);
+            ClientSize = new Size(729, 507);
+            Controls.Add(textBox4);
+            Controls.Add(label5);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(groupBox1);
@@ -176,9 +201,11 @@
         private Label label2;
         private Label label3;
         private TextBox textBox3;
-        private Label label4;
         private GroupBox groupBox1;
         private Button button1;
         private Button button2;
+        private TextBox textBox4;
+        private Label label5;
+        private TextBox textPreBox;
     }
 }

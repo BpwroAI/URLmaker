@@ -29,6 +29,7 @@ namespace URLmaker
 
             Program.Options["SkipChar"] = textBox2.Text;
             Program.Options["URLStr"] = textBox3.Text;
+            Program.Options["URLStrEnd"] = textBox4.Text;
             isClosingByButton1 = true;
             this.Close();
         }
@@ -47,6 +48,7 @@ namespace URLmaker
                 }
                 textBox2.Text = Program.Options.ContainsKey("SkipChar") ? Program.Options["SkipChar"] : "";
                 textBox3.Text = Program.Options.ContainsKey("URLStr") ? Program.Options["URLStr"] : "";
+                textBox4.Text = Program.Options.ContainsKey("URLStrEnd") ? Program.Options["URLStrEnd"] : "";
 
             }
         }
@@ -72,6 +74,7 @@ namespace URLmaker
             }
             Program.Options["SkipChar"] = textBox2.Text;
             Program.Options["URLStr"] = textBox3.Text;
+            Program.Options["URLStrEnd"] = textBox4.Text;
             // 正規表現で"と"の間に"/"がある部分を抽出
             //string pattern = "\"(.*?)\".*?/(.*?)\"";
 
@@ -111,10 +114,10 @@ namespace URLmaker
                 }
 
                 // 条件を満たす場合のみHashSetに追加 (URLshrを先頭に付ける)
-                extractedTextsPre.Add(Program.Options["URLStr"] + extractedTextPre);
+                extractedTextsPre.Add(Program.Options["URLStr"] + extractedTextPre + Program.Options["URLStrEnd"]);
             }
-            List<string> textLines = extractedTextsPre.Take(8).ToList();
-            this.label4.Text = string.Join("\n", textLines);
+            List<string> textLines = extractedTextsPre.Take(30).ToList();
+            this.textPreBox.Text = string.Join(Environment.NewLine, textLines);
         }
 
         static bool ContainsSkipCharPre(string text, string skipChars)

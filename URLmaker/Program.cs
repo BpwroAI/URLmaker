@@ -55,8 +55,9 @@ namespace URLmaker
                 EnsureOptionExists("NumCharExc", "2");
                 EnsureOptionExists("SkipChar", ":;,");
                 EnsureOptionExists("URLStr", "https://");
+                EnsureOptionExists("URLStrEnd", "");
 
-                ApplicationConfiguration.Initialize();
+            ApplicationConfiguration.Initialize();
                 Form1 form1 = new Form1();
                 Application.Run(form1);
 
@@ -151,7 +152,7 @@ namespace URLmaker
                                 }
 
                                 // 条件を満たす場合のみHashSetに追加 (URLshrを先頭に付ける)
-                                extractedTexts.Add(Program.Options["URLStr"] + extractedText1);
+                                extractedTexts.Add(Program.Options["URLStr"] + extractedText1 + Program.Options["URLStrEnd"]);
                             }
 
                             // 重複を排除したテキストをファイルに書き込み
@@ -210,6 +211,7 @@ namespace URLmaker
                     writer.WriteLine("NumCharExc=2");
                     writer.WriteLine("SkipChar=:;,");
                     writer.WriteLine("URLStr=https://");
+                    writer.WriteLine("URLStrEnd=");
                 }
                 Console.WriteLine($"{filePath} を作成しました。");
             }
